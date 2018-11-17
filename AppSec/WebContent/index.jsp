@@ -2,6 +2,20 @@
    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+   <script>
+      window.addEventListener('input', function(e){
+         var reg= /\')/;
+         var reg1= /1=1/;
+         var reg2= / or /;
+         var reg3= /\")/;
+         var reg4= / and /;
+         var reg5= / union /;
+         if(reg.exec(e)!=null || reg1.exec(e)!=null || reg2.exec(e)!=null || reg3.exec(e)!=null || reg4.exec(e)!=null || reg5.exec(e)!=null){
+            alert("Hey there, are you using SQLInjection? Please do not");
+            e.stopPropagation();
+    }
+});
+</script>
    <head>
       <meta charset="UTF-8">
       <title>Login</title>
