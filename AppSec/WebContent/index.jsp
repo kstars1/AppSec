@@ -3,16 +3,21 @@
 <!DOCTYPE html>
 <html>
    <script>
-      window.addEventListener('input', function(e){
+      function check(field){
+         if(field = name)
+            var x = document.getElementbyId("username");
+         else
+            var x = document.getElementbyId("password");
+         var input = x.value;
          var reg= /\')/;
          var reg1= /1=1/;
          var reg2= / or /;
          var reg3= /\")/;
          var reg4= / and /;
          var reg5= / union /;
-         if(reg.exec(e)!=null || reg1.exec(e)!=null || reg2.exec(e)!=null || reg3.exec(e)!=null || reg4.exec(e)!=null || reg5.exec(e)!=null){
+         if(reg.exec(input)!=null || reg1.exec(input)!=null || reg2.exec(input)!=null || reg3.exec(input)!=null || reg4.exec(input)!=null || reg5.exec(input)!=null){
             alert("Hey there, are you using SQLInjection? Please do not");
-            e.stopPropagation();
+            x.value = '';
     }
 });
 </script>
@@ -31,11 +36,11 @@
          <table border="0">
             <tr>
                <td>Username</td>
-               <td><input type="text" name="username" value= "${user.username}" /> </td>
+               <td><input type="text" name="username" id="username" value= "${user.username}" onchange="check("name");" onkeypress="this.onchange(); onpaste="this.onchange()" oninput="this.onchange()"/> </td>
             </tr>
             <tr>
                <td>Password</td>
-               <td><input type="password" name="password" value= "${user.password}" /> </td>
+               <td><input type="password" name="password" id="password" value= "${user.password}" onchange="check("pass");" onkeypress="this.onchange(); onpaste="this.onchange()" oninput="this.onchange()"/> </td>
             </tr>
            
             <tr>
