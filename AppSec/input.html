@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+   <script type="text/javascript">
+      function check(){
+         //alert("Hey");
+         var x = document.getElementById("user");
+         var y = document.getElementById("pass");
+         x = x.value;
+         y = y.value;
+         var reg= /\'\)/ig;
+         var reg1= /\d=\d/ig;
+         var reg2= /or\s+/ig;
+         var reg3= /\"\)/ig;
+         var reg4= /and\s+/ig;
+         var reg5= /union\s+/ig;
+         var reg6= /--/ig;
+         var reg7= /#/ig;
+         var reg8= /exec\s+/ig;
+         var reg9= /where\s+/ig;
+         if(reg.test(x)==true || reg1.test(x)==true || reg2.test(x)==true || reg3.test(x)==true || reg4.test(x)==true || reg5.test(x)==true || reg6.test(x)==true || reg7.test(x)==true || reg8.test(x)==true || reg9.test(x)==true){
+            alert("Hey there, are you using SQLInjection? Please do not");
+            document.getElementById("user").value = '';
+         }
+         if(reg.test(y)==true || reg1.test(y)==true || reg2.test(y)==true || reg3.test(y)==true || reg4.test(y)==true || reg5.test(y)==true || reg6.test(y)==true || reg7.test(y)==true || reg8.test(y)==true || reg9.test(y)==true){
+            alert("Hey there, are you using SQLInjection? Please do not");
+            document.getElementById("pass").value = '';
+         }
+      }
+   </script>
+   <head>
+      <meta charset="UTF-8">
+      <title>Login</title>
+   </head>
+   <body>
+      
+ 
+      <h3>Login Page</h3>
+      <p style="color: red;"></p>
+ 
+ 
+      <form method="POST" action="./success.html" id="form">
+         <table>
+            <tr>
+               <td>Username</td>
+               <td><input type="text" name="username" id="user" oninput="check()"/> </td>
+            </tr>
+            <tr>
+               <td>Password</td>
+               <td><input type="password" name="password" id="pass" oninput="check()"/> </td>
+            </tr>
+           
+            <tr>
+               <td colspan ="2">
+                  <input type="submit" value= "Submit" onclick="check()"/>
+                  <a href="${pageContext.request.contextPath}/">Cancel</a>
+               </td>
+            </tr>
+         </table>
+      </form>
+      
+  
+      
+   </body>
+</html>
