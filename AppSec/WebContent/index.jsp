@@ -2,12 +2,12 @@
    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-   <script>
+   <script type="text/javascript">
       function check(field){
          if(field = name)
-            var x = document.getElementbyId("username");
+            var x = document.getElementbyId("user");
          else
-            var x = document.getElementbyId("password");
+            var x = document.getElementbyId("pass");
          var input = x.value;
          var reg= /\')/;
          var reg1= /1=1/;
@@ -18,9 +18,9 @@
          if(reg.exec(input)!=null || reg1.exec(input)!=null || reg2.exec(input)!=null || reg3.exec(input)!=null || reg4.exec(input)!=null || reg5.exec(input)!=null){
             alert("Hey there, are you using SQLInjection? Please do not");
             x.value = '';
-    }
-});
-</script>
+         }
+      }
+   </script>
    <head>
       <meta charset="UTF-8">
       <title>Login</title>
@@ -36,11 +36,11 @@
          <table border="0">
             <tr>
                <td>Username</td>
-               <td><input type="text" name="username" id="username" value= "${user.username}" onchange="check("name");" onkeypress="this.onchange(); onpaste="this.onchange()" oninput="this.onchange()"/> </td>
+               <td><input type="text" name="username" id="username" value= "${user.username}" onchange="check("user");" onkeypress="this.onchange();" onpaste="this.onchange();" oninput="this.onchange();"/> </td>
             </tr>
             <tr>
                <td>Password</td>
-               <td><input type="password" name="password" id="password" value= "${user.password}" onchange="check("pass");" onkeypress="this.onchange(); onpaste="this.onchange()" oninput="this.onchange()"/> </td>
+               <td><input type="password" name="password" id="password" value= "${user.password}" onchange="check("pass");" onkeypress="this.onchange();" onpaste="this.onchange();" oninput="this.onchange();"/> </td>
             </tr>
            
             <tr>
